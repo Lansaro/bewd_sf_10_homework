@@ -1,0 +1,11 @@
+<div class="col-12">
+<h1>Little bloggies:</h1>
+
+  <div class="well">
+    <% @blogs.each do |blog| %>
+    <ul>
+      <li> <%= blog.title %> </li>
+    </ul>
+    <% end %>
+  </div>
+</div>
