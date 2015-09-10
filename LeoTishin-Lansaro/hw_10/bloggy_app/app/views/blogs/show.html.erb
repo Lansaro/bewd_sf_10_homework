@@ -1,4 +1,4 @@
-<div class="col-12">
+<!-- <div class="col-12">
 <h1>Little bloggies:</h1>
 
   <div class="well">
@@ -8,4 +8,35 @@
     </ul>
     <% end %>
   </div>
-</div>
+</div> -->
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @blog.author %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @blog.date %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @blog.body %>
+</p>
+
+<p>
+  <strong>Private:</strong>
+  <%= @blog.private %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
