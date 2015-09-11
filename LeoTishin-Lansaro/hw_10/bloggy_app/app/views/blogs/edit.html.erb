@@ -1,2 +1,13 @@
-<h1>Blogs#edit</h1>
-<p>Find me in app/views/blogs/edit.html.erb</p>
+<div class="col-xs-12">
+<h1 style="color:#cc3333;"> Edit Blog </h1>
+
+<div class="well">
+<%= simple_form_for @blog do |f| %>
+  <%= f.input :title, label:false, input_html: {placeholder: "Title"} %>
+  <%= f.input :author, label:false, input_html: {placeholder: "Author"} %>
+  <%= f.input :body, label:false, input_html: {placeholder: "Body"} %>
+  <%= f.submit "Submit".html_safe, class: 'btn btn-lg btn-danger'%>
+  <% end %>
+</div>
+
+</div>

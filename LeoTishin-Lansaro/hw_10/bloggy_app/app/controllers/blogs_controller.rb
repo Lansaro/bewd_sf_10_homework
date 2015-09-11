@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
+    @blog = get_blog
   end
 
   def new
@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was created.' }
+        format.html { redirect_to @blog, notice: 'Created' }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new }
@@ -27,12 +27,13 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    @blog = get_blog
   end
 
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was updated.' }
+        format.html { redirect_to @blog, notice: 'Updated' }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }
@@ -44,7 +45,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Book was destroyed.' }
+      format.html { redirect_to blogs_url, notice: 'Erased' }
       format.json { head :no_content }
     end
   end
@@ -56,5 +57,9 @@ class BlogsController < ApplicationController
 
   def blog_params
     params.require(:blog).permit(:title, :author, :date, :body, :private)
+  end
+
+  def get_blog
+  Blog.find(params[:id])
   end
 end

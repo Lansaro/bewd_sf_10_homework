@@ -1,25 +1,22 @@
-<!-- <div class="col-12">
-<h1>Our little bloggies:</h1>
+<div class="col-12">
+  <h1 style="color:#cc3333;">Bloggies</h1>
 
   <div class="well">
     <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.author %></td>
-        <td><%= blog.date %></td>
-        <td><%= blog.body %></td>
-        <td><%= blog.private %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <ul>
+      <li> <%= link_to "#{blog.title}", blog_path(blog) %> </li>
+    </ul>
     <% end %>
   </div>
-</div> -->
+</div>
+
+<div class="well">
+  <%= link_to "New Blog", new_blog_path, class: 'btn btn-default' %>
+</div>
 
 
 
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>
 
 <h1>Listing Blogs</h1>
 
@@ -53,4 +50,4 @@
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to 'New Blog', new_blog_path %> -->
