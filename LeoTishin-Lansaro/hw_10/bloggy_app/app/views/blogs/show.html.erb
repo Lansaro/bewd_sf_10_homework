@@ -1,44 +1,37 @@
-<div class="col-xs-12">
-  <div class="row-fluid">
-  <h1><%=@blog.title %></h1>
-  <ul><%= @blog.author %></ul>
-  <ul><%= @blog.date %></ul>
-  <ul><%= @blog.body %></ul>
-  <ul><%= @blog.private %></ul>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3> <%= @blog.title %> </h3>
+        <p> <strong>Author:</strong> <%= @blog.author %> </p>
+        <p> <strong>Date:</strong> <%= @blog.date %></p>
+        <p> <%= @blog.body %> </p>
+        <p> <a> <%=link_to "Go to all blogs", blogs_path, class: 'btn btn-primary' %> </a> <a> <%=link_to "Edit blog", edit_blog_path(@blog), class: 'btn btn-default' %> </a> </p>
+      </div>
+      <h2>Comments</h2>
+      <% @blog.comments.each do |comment| %>
+        <p>
+          <strong>Comment:</strong>
+          <%= comment.body %>
+        </p>
+      <% end %>
+    </div>
+  </div>
 </div>
-<div class="row-fluid">
-    <%=link_to "Go to all blogs", blogs_path, class: 'btn btn-primary' %>
-    <%=link_to "Edit blog", edit_blog_path(@blog), class: 'btn btn-default' %>
+
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+<h2 class="caption">Add a comment</h2>
+<%= form_for([@blog, @blog.comments.build]) do |f| %>
+  <p>
+    <%= f.text_area :body, label:false, input_html: {placeholder: "Body"} %>
+  </p>
+  <p>
+    <%= f.submit "Submit".html_safe, class: 'btn btn-success'%>
+  </p>
+<% end %>
 </div>
 </div>
-
-
-<!-- <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @blog.author %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @blog.date %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @blog.body %>
-</p>
-
-<p>
-  <strong>Private:</strong>
-  <%= @blog.private %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %> -->
+</div>
