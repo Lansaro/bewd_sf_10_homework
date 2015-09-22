@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :new, :create]
 
   resources :artists do
-  resources :artistreviews
-end
+    resources :songs
+    resources :artistreviews
+  end
 
   resources :songs do
-  resources :songreviews
-end
+    resources :songreviews
+  end
 
   #establish a custom route
   get 'about', to: 'static_pages#about', as: 'about'
