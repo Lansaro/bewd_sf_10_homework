@@ -1,0 +1,30 @@
+<div class="col-xs-32">
+<div class="table-responsive">
+  <h1 style="#color:#666666;"> Our Cool Songs </h1>
+  <table class="table table-hover">
+    <!-- This is a table row with headers -->
+    <tr class="small">
+      <th> Title </th>
+      <th> Genre </th>
+      <th> Action </th>
+    </tr>
+
+    <%@songs.each do |song| %>
+    <tr>
+      <td> <%=song.title %> </td>
+      <td> <%=song.genre %> </td>
+      <td>
+        <%=link_to 'Show', song_path(song), class: 'btn btn-default btn-xs' %>
+        <%=link_to 'Edit', edit_song_path(song), class: 'btn btn-success btn-xs' %>
+        <%=link_to 'Delete', song, method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-danger btn-xs' %>
+      </td>
+    </tr>
+    <% end %>
+
+  </table>
+</div>
+
+<div>
+  <%= link_to "Add New Song", new_song_path, class: 'btn btn-lg btn-default' %>
+</div>
+</div>
