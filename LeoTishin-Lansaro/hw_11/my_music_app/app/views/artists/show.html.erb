@@ -1,0 +1,35 @@
+<div class="row-fluid">
+  <div class="panel panel-default">
+  <div class="col-md-6">
+    <%=image_tag(@artist.image_url, class: "img-responsive thumbnail") %>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1> <%= @artist.name%>
+          <%=link_to "All Artists", artists_path, class: 'btn btn-default btn-xs'%>
+        </h1>
+      </div>
+      <div class="panel-body">
+        <p> <%= @artist.description %> </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+<h2 class="caption">Add Review</h2>
+<%= form_for([@artist, @artist.reviews.build]) do |f| %>
+  <p>
+    <%= f.text_area :body, label:false, input_html: {placeholder: "Body"} %>
+  </p>
+  <p>
+    <%= f.submit "Submit".html_safe, class: 'btn btn-success'%>
+  </p>
+<% end %>
+</div>
+</div>
+</div>
