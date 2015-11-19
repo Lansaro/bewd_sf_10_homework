@@ -22,7 +22,7 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
 <h2 class="caption">Add Review</h2>
-<%= form_for([@artist, @artist.reviews.build]) do |f| %>
+<%= form_for([@artist, @artist.artistreviews.build]) do |f| %>
   <p>
     <%= f.text_area :body, label:false, input_html: {placeholder: "Body"} %>
   </p>
